@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Article from "../components/Article";
-import { Helmet } from "react-helmet";
 
 const ArticleDetail = () => {
   const { id } = useParams(); // 아이디로 찾아오기
@@ -31,12 +30,6 @@ const ArticleDetail = () => {
 
   return (
     <div>
-      <Helmet>
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="upgrade-insecure-requests"
-        />
-      </Helmet>
       {loading ? (
         <h2>loading...</h2>
       ) : (
