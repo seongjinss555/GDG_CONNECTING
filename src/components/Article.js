@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Article = ({ id, title, content, author, createdAt }) => {
   const navigate = useNavigate();
-  const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
+  //const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
 
   const modifyArticle = () => {
     navigate("/article-patch/" + id);
@@ -13,7 +13,7 @@ const Article = ({ id, title, content, author, createdAt }) => {
   const deleteArticle = async () => {
     if (window.confirm("게시글을 삭제하시겠습니까?")) {
       try {
-        await axios.delete(`${BACKEND_IP}/article-delete?id=${id}`); // 쿼리 파라미터로 ID 전달
+        await axios.delete(`https://www.kkt333.shop/article-delete?id=${id}`); // 쿼리 파라미터로 ID 전달
         alert("삭제되었습니다.");
         navigate("/articles");
       } catch (error) {

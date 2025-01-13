@@ -24,8 +24,10 @@ const ArticleUpdate = () => {
 
   const getArticle = async () => {
     try {
-      const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
-      const response = await axios.get(`${BACKEND_IP}/article-path/${id}`);
+      //const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
+      const response = await axios.get(
+        `https://www.kkt333.shop/article-path/${id}`
+      );
       setArticle(response.data);
     } catch (error) {
       console.error("게시글 조회 실패:", error);
@@ -35,8 +37,8 @@ const ArticleUpdate = () => {
 
   const updateArticle = async () => {
     try {
-      const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
-      await axios.patch(`${BACKEND_IP}/article-patch?id=${id}`, {
+      //const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
+      await axios.patch(`https://www.kkt333.shop/article-patch?id=${id}`, {
         content, // 내용
       });
       alert("수정되었습니다.");

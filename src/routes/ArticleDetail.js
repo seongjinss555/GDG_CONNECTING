@@ -7,11 +7,13 @@ const ArticleDetail = () => {
   const { id } = useParams(); // 아이디로 찾아오기
   const [loading, setLoading] = useState(true);
   const [article, setArticle] = useState({});
-  const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
+  //const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
 
   const getArticle = async () => {
     try {
-      const resp = await axios.get(`${BACKEND_IP}/article-path/${id}`);
+      const resp = await axios.get(
+        `https://www.kkt333.shop/article-path/${id}`
+      );
       setArticle(resp.data); // resp.data에 실제 데이터가 들어있음
       setLoading(false);
     } catch (error) {

@@ -5,11 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 const Articles = () => {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
-  const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
+  //const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
 
   const getArticles = async () => {
     try {
-      const resp = await (await axios.get(`${BACKEND_IP}/articles`)).data; //게시글 목록 데이터 할당
+      const resp = await (
+        await axios.get("https://www.kkt333.shop/articles")
+      ).data; //게시글 목록 데이터 할당
       setArticles(resp); //articles 변수에 저장 *api 명세서는 json으로 받기 때문에 resp.data말고 resp 그 자체를 받자! resp.data를 넣으면 객체에 포함된 데이터 배열을 불러온다.
       //console.log(resp);
     } catch (error) {
