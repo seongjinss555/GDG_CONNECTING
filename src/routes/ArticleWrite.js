@@ -23,7 +23,7 @@ const ArticleWrite = () => {
 
   const savedArticle = async () => {
     const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
-    await axios.post(`${BACKEND_IP}article-create`, write).then((res) => {
+    await axios.post(`${BACKEND_IP}/article-create`, write).then((res) => {
       alert("글이 등록되었습니다.");
       navigate("/articles");
     });
