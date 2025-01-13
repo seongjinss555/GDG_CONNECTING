@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Articles = () => {
   const navigate = useNavigate();
@@ -27,6 +28,12 @@ const Articles = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+      </Helmet>
       <h1>게시글 목록</h1>
       <ul>
         {Array.isArray(articles) && articles.length > 0 ? (

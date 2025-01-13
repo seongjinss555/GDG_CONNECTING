@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const ArticleUpdate = () => {
   const navigate = useNavigate();
@@ -57,6 +58,12 @@ const ArticleUpdate = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+      </Helmet>
       <div>
         <span>제목</span>
         <input type="text" name="title" value={title} onChange={onChange} />

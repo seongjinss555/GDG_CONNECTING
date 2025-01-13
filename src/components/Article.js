@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Article = ({ id, title, content, author, createdAt }) => {
   const navigate = useNavigate();
@@ -36,6 +37,12 @@ const Article = ({ id, title, content, author, createdAt }) => {
 
   return (
     <div>
+      <Helmet>
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+      </Helmet>
       <div>
         <h2>{title}</h2>
         <h4>{author}</h4>
